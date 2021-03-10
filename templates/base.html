@@ -12,9 +12,10 @@
   <link rel="alternate icon" href="/icons/favicon.png">
 
   <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
-    rel="stylesheet" />
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css" rel="stylesheet" /> -->
+
+  <!-- <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" /> -->
+
   <link href='{{ get_url(path='site.css') }}' rel="stylesheet" />
 
   {% block custom_css %}
@@ -26,7 +27,9 @@
     {% endblock title %}
   </title>
 
-  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+  <!-- <script crossorigin="anonymous" src="/js/201b8d5e05.js"></script> -->
+  <script crossorigin="anonymous" src="/js/free.min.js"></script>
+  <script crossorigin="anonymous" src="/js/free-v4-shims.min.js"></script>
 
   {% if config.extra.analytics.google %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.google }}"></script>
@@ -192,23 +195,27 @@
       <span class="icon is-small">
         <i class="fas fa-power-off fa-xs"></i>
       </span>
-      <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/getzola/zola">Zola</a> with <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/RatanShreshtha/DeepThought">DeepThought</a>
+      <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/getzola/zola">Zola</a> with <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/t3link/DeepThought">DeepThought</a>
     </p>
   </footer>
   {% if page %}{% include "scroll.html" %}{% endif %}
   {% endblock %}
 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script> -->
+
+  <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script> -->
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script> -->
+
   <script src="/js/site.js"></script>
 
+  <script src="/js/elasticlunr.min.js"></script>
   <script src="/search_index.{{ config.default_language }}.js"></script>
+
   {% if page %}<script src="/js/scroll.js"></script>{% endif %}
 
   <!-- block 的用法: 父模版定义block，子模版中重写 -->

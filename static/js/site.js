@@ -136,7 +136,6 @@ function search() {
     },
   };
   var currentTerm = "";
-  console.log(window.searchIndex)
   var index = elasticlunr.Index.load(window.searchIndex);
 
   $searchInput.addEventListener(
@@ -170,7 +169,7 @@ function search() {
 }
 
 $(document).ready(function () {
-  mermaid.initialize({ startOnLoad: true });
+  // mermaid.initialize({ startOnLoad: true });
 
   if (localStorage.getItem("theme") === "dark") {
     $("body").attr("theme", "dark");
