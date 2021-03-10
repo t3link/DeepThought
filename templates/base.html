@@ -91,15 +91,24 @@
       </div>
       <div class="navbar-menu" id="navMenu">
         <div class="navbar-end has-text-centered">
-          {% for item in config.extra.navbar_items %}
-            {% if lang == item.code %}
-              {% for nav in item.nav_items %}
-                <a class="navbar-item" href='{{ nav.url | replace(from='$BASE_URL', to=config.base_url) }}'>
-                  {{ nav.name }}
-                </a>
-              {% endfor %}
-            {% endif %}
-          {% endfor %}
+          <!-- 兼容之前的单语言版导航栏 -->
+          {% if config.extra.multilingual_navbar_items and config.extra.multilingual_navbar_items.length > 0 %}
+            {% for item in config.extra.multilingual_navbar_items %}
+              {% if lang == item.code %}
+                {% for nav in item.nav_items %}
+                  <a class="navbar-item" href='{{ nav.url | replace(from='$BASE_URL', to=config.base_url) }}'>
+                    {{ nav.name }}
+                  </a>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% else %}          
+            {% for nav in config.extra.navbar_items %}
+              <a class="navbar-item" href='{{ nav.url | replace(from='$BASE_URL', to=config.base_url) }}'>
+                {{ nav.name }}
+              </a>
+            {% endfor %}    
+          {% endif %}
           <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
             <span class="icon">
               <i class="fas fa-search"></i>

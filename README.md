@@ -39,7 +39,7 @@ And then create and array of nav item for each language:
 **NOTE**: Include your default language in this array
 
 ```toml
-navbar_items = [
+multilingual_navbar_items = [
  { code = "en", nav_items = [
   { url = "$BASE_URL/", name = "Home" },
   { url = "$BASE_URL/posts", name = "Posts" },
@@ -68,6 +68,17 @@ fr:
 es: 
 
 ![DeepThought](./screenshot_navbar_es.png)
+
+**NOTE**: 为了兼容之前的版本，仍然可以使用 `config.extra.navbar_items` 配置单语言的导航栏
+
+```toml
+navbar_items = [
+	{ url = "$BASE_URL/posts", name = "Posts" },
+	{ url = "$BASE_URL/tags", name = "Tags" },
+	{ url = "$BASE_URL/categories", name = "Categories" },
+]
+```
+
 ## Theme Options
 
 ```toml
