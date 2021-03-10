@@ -136,6 +136,7 @@ function search() {
     },
   };
   var currentTerm = "";
+  console.log(window.searchIndex)
   var index = elasticlunr.Index.load(window.searchIndex);
 
   $searchInput.addEventListener(

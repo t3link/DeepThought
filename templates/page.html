@@ -21,6 +21,24 @@
             <div class="column is-4 has-text-right-desktop">
               {{ macros::page_content_metadata(page=page) }}
             </div>
+            <div class="column is-8">
+              {% if page.updated %}
+              <p class="has-text-grey">
+                <span class="icon">
+                  <i class="fa fa-refresh"></i>
+                </span>
+                last updated on
+                <time datetime='{{ page.updated }}'>{{ page.updated | date(format='%B %d, %Y') }}</time>
+              </p>
+              {% endif %}
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+            </div>
+          </div>
+          <div class="content mt-2">
+            {{ page.content | safe }}
+          </div>
+          <div class="columns is-multiline is-gapless">
             <div class="column">
               {% if page.taxonomies.categories %}
               {{ macros::render_categories(categories=page.taxonomies.categories) }}
@@ -32,15 +50,11 @@
               {% endif %}
             </div>
           </div>
-          <div class="content mt-2">
-            {{ page.content | safe }}
-          </div>
         </article>
       </div>
       {% if page.extra.toc %}
       <div class="column is-2 is-hidden-mobile">
         <aside class="menu" style="position: sticky; top: 48px">
-          <p class="heading has-text-weight-bold">Contents</p>
           <ul class="menu-list">
             {% for h1 in page.toc %}
             <li>
@@ -177,16 +191,5 @@
     }
   }, false);
 </script>
-{% endif %}
-
-{% if page.extra.comments and config.extra.commenting.hyvor %}
-<script type="text/javascript">
-  var HYVOR_TALK_WEBSITE = {{ config.extra.commenting.hyvor }};
-  var HYVOR_TALK_CONFIG = {
-    url: window.location.href,
-    id: window.btoa(encodeURIComponent(escape(window.location.href)))
-  };
-</script>
-<script src="https://talk.hyvor.com/web-api/embed" type="text/javascript" async></script>
 {% endif %}
 {% endblock %}
