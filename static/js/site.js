@@ -136,6 +136,7 @@ function search() {
     },
   };
   var currentTerm = "";
+  console.log(window.searchIndex)
   var index = elasticlunr.Index.load(window.searchIndex);
 
   $searchInput.addEventListener(
@@ -180,6 +181,13 @@ $(document).ready(function () {
     $(".navbar-burger").toggleClass("is-active");
     $(".navbar-menu").toggleClass("is-active");
   });
+
+  $('div.navbar-end > .navbar-item').each(function (el) {
+    if (location.href.includes($(this).attr('href'))) {
+      $('a.navbar-item.is-active').removeClass('is-active');
+      $(this).addClass('is-active');
+    }
+  })
 
   $("#nav-search").click(function () {
     var target = $(this).data("target");

@@ -19,6 +19,37 @@ body[theme="dark"] {
   filter: invert(1) hue-rotate(180deg);
 }
 
+code {
+  border-radius: 5px;
+  line-height: 136%;
+}
+
+.back-to-top {
+  width: 1.32rem;
+  height: 1.32rem;
+  position: fixed;
+  z-index: 999;
+  bottom: 2.18666667rem;
+  right: 0.53333333rem;  
+  display: none;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.icon {
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.columns .is-multiline .icon {
+  margin-bottom: 3px;
+}
+
 section {
   flex: 1;
 }
@@ -28,11 +59,7 @@ picture[theme="dark"],
 video[theme="dark"] {
   filter: invert(1) hue-rotate(180deg);
 }
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .link {
   color: $link;
   &:hover {

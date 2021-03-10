@@ -6,10 +6,15 @@
 
 {% block header %}
 <header class='hero'>
-  <div class='hero-body'>
+  <div class='hero-body pb-0'>
     <div class='container'>
       <div class='has-text-centered'>
-        <h1 class='title is-1'>{{ section.title }}</h1>
+        <h1 class='title is-1'>
+          {{ section.title }}
+          {% if paginator and paginator.total_pages == 0 %}
+           空的！
+          {% endif %}
+        </h1>
         <p class='subtitle'>{{ section.description }}</p>
       </div>
       <div class="content">
@@ -38,7 +43,6 @@
               {{ page.title }}
             </a>
           </h2>
-          <p class="subtitle">{{ page.description }}</p>
           <div class="columns is-multiline is-gapless">
             <div class="column is-8">
               {{ macros::page_publish_metadata(page=page) }}
