@@ -26,6 +26,15 @@ code {
   background: #f8f5ec;
 }
 
+.content pre {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  padding: .85em .85em;
+  white-space: pre;
+  word-wrap: normal;
+  border-radius: 5px;
+}
+
 pre, code {
   font-size: 90%;
   overflow: auto;
@@ -40,11 +49,8 @@ pre, code {
   }
 }
 
-ol li {
+ol > li::marker {
   font-weight: bold;
-}
-ol li > * {
-  font-weight: normal;
 }
 
 .esa-catalog-title {
@@ -73,6 +79,11 @@ ol li > * {
     margin: .15em;
     padding-left: .15em;
   }
+}
+
+.sub {
+  font-size: 14px;
+  vertical-align: sub;
 }
 
 .back-to-top {

@@ -56,7 +56,7 @@
       <div class="column is-2 is-hidden-mobile">
         <aside class="menu" style="position: sticky; top: 48px">
           <div class="esa-catalog-title">CONTENTS</div>
-          <ul class="menu-list toc">
+          <ul class="menu-list">
             {% for h1 in page.toc %}
             <li>
               <a id="link-{{h1.id}}" class="toc is-size-7 {% if loop.first %}is-active{% endif %}" href="{{ h1.permalink | safe }}">
@@ -151,58 +151,46 @@
 {% block custom_js %}
 {% if page.extra.toc %}
 <script type="text/javascript">
-  function initToc() {
-  var $toclink = document.querySelectorAll('.toc.is-size-7')
+  const menuBarHeight = $("nav.navbar").height();
+  const tocItems = $('.toc');
+  const navSections = new Array($('.toc').length);
 
-  // 看你的写作习惯，我习惯在正文里面从二级标题开始
-  var $headerlink = document.querySelectorAll('.content.mt-2 h2, .content.mt-2 h3')
+  tocItems.each(function (i) {
+    let id = $(this).attr("id").substring(5);
+    navSections[i] = document.getElementById(id);
+  })
 
-  var $tocLinkLis = document.querySelectorAll('.menu-list.toc li')
+  function isVisible(tocIndex) {
+    const current = navSections[tocIndex];
+    const next = tocIndex < tocItems.length - 1 ? navSections[tocIndex+1] : $("section.section").get(1);
+    
+    const c = current.getBoundingClientRect();
+    const n = next.getBoundingClientRect();
+    const h = (window.innerHeight || document.documentElement.clientHeight);
 
-
-  console.log($toclink)
-  console.log($headerlink)
-  console.log($tocLinkLis)
-
-
-  var searchActiveTocIndex = function (array, target) {
-    if (!array.length) {
-      return -1
-    }
-
-    target += 30
-    for (let i = 0; i < array.length - 1; i++) {
-      if (target > array[i].offsetTop && target <= array[i + 1].offsetTop) return i
-    }
-    if (target > array[array.length - 1].offsetTop) return array.length - 1
-    return -1
+    return (c.top <= h) && (c.top + (n.top - c.top) - menuBarHeight >= 0);
   }
 
-  document.addEventListener("scroll", function() {
-    var scrollTop = document.body.scrollTop | document.documentElement.scrollTop
-    var activeTocIndex = searchActiveTocIndex($headerlink, scrollTop)
-
-    $toclink.forEach(function (el) {
-      el.classList.remove('is-active')
-    })
-
-    if ($toclink.length && activeTocIndex !== -1) {
-      $toclink[activeTocIndex].classList.add('is-active')
-      // let ancestor = $toclink[activeTocIndex].parentNode
-      // while (ancestor.tagName !== 'NAV') {
-      //   ancestor.classList.add('has-active')
-      //   ancestor = ancestor.parentNode.parentNode
-      // }
+  function activateIfVisible() {
+    for (b = true, i = 0; i < tocItems.length; i++) {
+      if (b && isVisible(i)) {
+        tocItems[i].classList.add('is-active');
+        b = false;
+      } else
+        tocItems[i].classList.remove('is-active');
     }
-  })
-}
+  }
 
-if (document.readyState === "complete" 
-|| (document.readyState !== "loading" && !document.documentElement.doScroll)) {
-  initToc();
-} else {
-  document.addEventListener("DOMContentLoaded", initToc);
-}
+  var isTicking = null;
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        activateIfVisible();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, false);
 </script>
 {% endif %}
 {% endblock %}
