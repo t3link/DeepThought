@@ -19,6 +19,13 @@ body[theme="dark"] {
   filter: invert(1) hue-rotate(180deg);
 }
 
+.section {
+  padding-top: 3rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
 code {
   line-height: 136%;
   padding: 3px 5px;
