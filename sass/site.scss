@@ -62,6 +62,13 @@ ol > li::marker {
   font-weight: bold;
 }
 
+.content blockquote {
+  background-color: #f5f5f5;
+  border-left: 5px solid #dbdbdb;
+  padding: 0.75em 1em;
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+
 .esa-catalog-title {
   cursor: move;
   padding-left: 10px;
