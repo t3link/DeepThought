@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        {% set section_item = get_section(path="archives/_index.md") %}
+        {% for year, posts in section_item.pages | group_by(attribute="year") %}
+            <div class="listing-group">{{ year }}</div>
+            <ul class="listing">
+                {% for post in posts %}
+                <div class="listing-item">
+                  <span class="post-time">{{ post.date | date(format="%m-%d") }}</span>
+                  <span class="post-title">
+                    <a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </span>
+                </div>
+                {% endfor %}
+            </ul>
+            <hr/>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+{% block footbar %}
+{% endblock %}

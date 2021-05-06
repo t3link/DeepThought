@@ -157,3 +157,25 @@ $breakpoint-mobile: 768px;
     font: 85% $font-stack;
   }
 }
+
+.listing-group {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.13em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.listing {
+  margin-left: 3px;
+}
+.listing-item {
+  padding: 3px 20px;
+  border-left: 1px dashed #cacaca;
+  transition: 0.2s ease-out;
+}
+.listing-item > .post-time {
+  margin-right: 0.83em;
+  color: #8a8a8a;
+}
