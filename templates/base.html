@@ -1,5 +1,5 @@
 {% import 'macros.html' as macros %}
-{% set lang = lang | default(value=config.default_language) %}
+{% set lang = lang %}
 
 <!DOCTYPE html>
 <html>
@@ -216,7 +216,7 @@
   <script src="/js/site.js"></script>
 
   <script src="/js/elasticlunr.min.js"></script>
-  <script src="/search_index.{{ config.default_language }}.js"></script>
+  <script src="/search_index.{{ lang }}.js"></script>
 
   {% if page %}<script src="/js/scroll.js"></script>{% endif %}
 
