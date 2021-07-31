@@ -1,31 +1,50 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block content %}
-<section class="section">
-  <div class="container">
-    <div class="columns">
-      <div class="column is-8 is-offset-2">
-        {% set section_item = get_section(path="archives/_index.md") %}
-        {% for year, posts in section_item.pages | group_by(attribute="year") %}
-            <div class="listing-group">{{ year }}</div>
-            <ul class="listing">
-                {% for post in posts %}
-                <div class="listing-item">
-                  <span class="post-time">{{ post.date | date(format="%m-%d") }}</span>
-                  <span class="post-title">
-                    <a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </span>
-                </div>
-                {% endfor %}
-            </ul>
-            <hr/>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
+{% block custom_css %} 
+<link href='{{ get_url(path='timeline.css') }}' rel="stylesheet" />
 {% endblock %}
 
+{% block content %} 
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <ul class="timeline timeline-centered">
+                    {% set section_item = get_section(path="archives/_index.md") %} 
+                    {% for year, pages in section_item.pages | group_by(attribute="year") %}
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">{{ year }} 年度</h2>
+                        </div>
+                    </li>
+                    {% for month, posts in pages | group_by(attribute="month") %}
+                    <li class="timeline-item">
+                        <div class="timeline-info">
+                            <p>
+                                <span>{{ month }}月共写了 {{ posts | length }} 篇文章 </span>
+                            </p>
+                            {% for post in posts %}
+                            <p>
+                                <span>{{ post.date | date(format="%m-%d") }} </span>
+                                <span>
+                                    <a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a>
+                                </span>
+                            </p>
+                            {% endfor %}
+                        </div>
+                        <div class="timeline-marker"></div>
+                    </li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+                <hr class="hr-solid-content" data-content="终归会结束">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 
 
-{% block footbar %}
+{% block footbar %} 
 {% endblock %}
