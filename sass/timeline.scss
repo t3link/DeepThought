@@ -75,7 +75,7 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         display: block;
         height: 15px;
         position: absolute;
-        top: 4px; left: 0;
+        top: 3px; left: 0;
         width: 15px;
         transition: background 0.3s ease-in-out,
                 border 0.3s ease-in-out;
@@ -86,7 +86,7 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
         background: #CCD5DB;
         display: block;
         position: absolute;
-        top: 24px; bottom: 0; left: 6px;
+        top: 20px; bottom: 0; left: 6px;
     }
     .timeline-item:last-child &:after {
         content: none;
@@ -211,20 +211,20 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
             text-align: right;
             padding-right: 30px;
         }
-        > .timeline-item:nth-child(odd) .timeline-content {
+        > .timeline-item:nth-child(odd) .timeline-info-date {
             float: right;
             text-align: left;
-            padding-left: 30px;
+            padding-left: 10px;
         }    
         > .timeline-item:nth-child(even) .timeline-info {
             float: right;
             text-align: left;
             padding-left: 30px;
         }
-        > .timeline-item:nth-child(even) .timeline-content {
+        > .timeline-item:nth-child(even) .timeline-info-date {
             float: left;
             text-align: right;
-            padding-right: 30px;
+            padding-right: 10px;
         }
         > .timeline-item.period .timeline-content {
             float: none;

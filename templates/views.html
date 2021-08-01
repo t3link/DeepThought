@@ -26,21 +26,12 @@
                             <p>
                                 <span>{{ month }}月共写了 {{ posts | length }} 篇文章 </span>
                             </p>
-                            {% set_global is_even_inner = (loop.index + outter) % 2 == 0 %}
                             {% for post in posts %}
                             <p>
-                                {% if is_even_inner %}
-                                <span>{{ post.date | date(format="%m-%d") }} </span>
-                                <span>
+                                <span class="timeline-info-date">{{ post.date | date(format="%m-%d") }} </span>
+                                <span class="timeline-info-title">
                                     <a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a>
                                 </span>
-                                {% else %}
-                                <span>
-                                    <a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }} </a>
-                                </span>
-                                <span>{{ post.date | date(format="%m-%d") }}</span>
-                                {% endif %}
-
                             </p>
                             {% endfor %}
                         </div>
