@@ -1,127 +1,141 @@
 @import "/css/fonts.css";
 
 // $font-stack: "Recursive", BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-$font-stack: "Recursive",-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+$font-stack: "Recursive",
+-apple-system,
+BlinkMacSystemFont,
+Helvetica Neue,
+PingFang SC,
+Microsoft YaHei,
+Source Han Sans SC,
+Noto Sans CJK SC,
+WenQuanYi Micro Hei,
+sans-serif;
 // $font-stack: "Recursive",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 
-$link: hsl(0, 0%, 21%);
+$link      : hsl(0, 0%, 21%);
 $link-hover: hsl(204, 71%, 39%);
 
-$read-more: hsl(204, 71%, 39%);
+$read-more      : hsl(204, 71%, 39%);
 $read-more-hover: hsl(348, 100%, 61%);
 
 
 body {
-  font: 100% $font-stack;
-  display: flex;
+  font          : 100% $font-stack;
+  display       : flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height    : 100vh;
 }
+
 body[theme="dark"] {
   filter: invert(1) hue-rotate(180deg);
 }
 
 .section {
-  padding-top: 3rem;
-  padding-right: 1.5rem;
+  padding-top   : 3rem;
+  padding-right : 1.5rem;
   padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
+  padding-left  : 1.5rem;
 }
 
 code {
-  line-height: 136%;
-  padding: 3px 5px;
+  line-height  : 136%;
+  padding      : 3px 5px;
   border-radius: 5px;
-  background: #f8f5ec;
+  background   : #f8f5ec;
 }
 
 .content pre {
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
-  padding: .85em .85em;
-  white-space: pre;
-  word-wrap: normal;
-  border-radius: 5px;
+  overflow-x                : auto;
+  padding                   : .85em .85em;
+  white-space               : pre;
+  word-wrap                 : normal;
+  border-radius             : 5px;
 }
 
-pre, code {
-  font-size: 90%;
-  overflow: auto;
-  font-family: Consolas,Monaco,Menlo,Consolas,monospace;
+pre,
+code {
+  font-size    : 90%;
+  overflow     : auto;
+  font-family  : Consolas, Monaco, Menlo, Consolas, monospace;
   margin-bottom: 0;
-  color: #ef2020;
+  color        : #ef2020;
 }
 
 .content {
-  ol, ul {
+
+  ol,
+  ul {
     margin-left: 1.42em !important;
   }
 }
 
-ol > li::marker {
+ol>li::marker {
   font-weight: bold;
 }
 
 .content blockquote {
   background-color: #f5f5f5;
-  border-left: 5px solid #dbdbdb;
-  padding: 0.75em 1em;
-  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+  border-left     : 5px solid #dbdbdb;
+  padding         : 0.75em 1em;
+  font-family     : -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
 }
 
 .esa-catalog-title {
-  cursor: move;
-  padding-left: 10px;
-  width: 100%;
-  height: 35px;
-  line-height: 36px;
+  cursor       : move;
+  padding-left : 10px;
+  width        : 100%;
+  height       : 35px;
+  line-height  : 36px;
   border-bottom: 1px solid #eef2f8;
-  font-size: 12px;
-  font-weight: 600;
-  color: #314659;
+  font-size    : 12px;
+  font-weight  : 600;
+  color        : #314659;
 }
 
 .esa-catalog-title:before {
-  content: '\2632';
+  content     : '\2632';
   margin-right: 5px;
 }
 
-.menu-list  {
+.menu-list {
   ul {
     margin-left: 1em !important;
   }
+
   li ul {
-    border-left: 1px solid #dbdbdb;
-    margin: .15em;
+    border-left : 1px solid #dbdbdb;
+    margin      : .15em;
     padding-left: .15em;
   }
 }
 
 .sub {
-  font-size: 14px;
+  font-size     : 14px;
   vertical-align: sub;
 }
 
 .back-to-top {
-  width: 1.32rem;
-  height: 1.32rem;
+  width   : 1.32rem;
+  height  : 1.32rem;
   position: fixed;
-  z-index: 999;
-  bottom: 2.18666667rem;
-  right: 0.53333333rem;  
-  display: none;
+  z-index : 999;
+  bottom  : 2.18666667rem;
+  right   : 0.53333333rem;
+  display : none;
 
   img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
+    max-width     : 100%;
+    height        : auto;
+    display       : inline-block;
     vertical-align: middle;
   }
 }
 
 .icon {
   vertical-align: middle;
-  margin-bottom: 5px;
+  margin-bottom : 5px;
 }
 
 .columns .icon {
@@ -140,18 +154,22 @@ video[theme="dark"] {
 
 .link {
   color: $link;
+
   &:hover {
     color: $link-hover;
   }
 }
+
 .read-more {
   color: $read-more;
+
   &:hover {
     color: $read-more-hover;
   }
 }
 
 $breakpoint-mobile: 768px;
+
 @media (max-width: $breakpoint-mobile) {
   body {
     font: 85% $font-stack;
@@ -159,23 +177,69 @@ $breakpoint-mobile: 768px;
 }
 
 .listing-group {
-  display: block;
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.13em;
+  display            : block;
+  font-size          : 1.5em;
+  margin-block-start : 0.83em;
+  margin-block-end   : 0.13em;
   margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
+  margin-inline-end  : 0px;
+  font-weight        : bold;
 }
+
 .listing {
   margin-left: 3px;
 }
+
 .listing-item {
-  padding: 3px 20px;
+  padding    : 3px 20px;
   border-left: 1px dashed #cacaca;
-  transition: 0.2s ease-out;
+  transition : 0.2s ease-out;
 }
-.listing-item > .post-time {
+
+.listing-item>.post-time {
   margin-right: 0.83em;
-  color: #8a8a8a;
+  color       : #8a8a8a;
+}
+
+details {
+
+  // Remove marker added by the display: list-item browser default
+  >summary {
+    list-style: none;
+  }
+
+  // Remove marker added by details polyfill
+  >summary::before {
+    display: none;
+  }
+
+  // Remove marker added by Chrome
+  >summary::-webkit-details-marker {
+    display: none;
+  }
+
+  margin-bottom: 1em;
+}
+
+details summary {
+  color: #3273dc;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+details summary::after {
+  content        : "";
+  position       : absolute;
+  width          : 1em;
+  height         : 1em;
+  margin         : .2rem 0 0.5ch;
+  background     : url(/images/arrow-on.svg) no-repeat;
+  background-size: 100% 100%;
+  transition     : transform .2s;
+  transform: rotate(90deg);
+}
+
+[open] summary::after {
+  transform: rotate(180deg);
 }
