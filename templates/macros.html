@@ -1,23 +1,9 @@
 {% macro social_links(social_config) %}
   <p class="has-text-centered">
-    {% if social_config.facebook %}
-      <a class="link" href="https://facebook.com/{{ social_config.facebook }}" target="_blank">
-        <span class="icon is-medium">
-          <i class="fab fa-facebook fa-lg"></i>
-        </span>
-      </a>
-    {% endif %}
     {% if social_config.twitter %}
       <a class="link" href="https://twitter.com/{{ social_config.twitter }}" target="_blank">
         <span class="icon is-medium">
           <i class="fab fa-twitter fa-lg"></i>
-        </span>
-      </a>
-    {% endif %}
-    {% if social_config.linkedin %}
-      <a class="link" href="https://www.linkedin.com/in/{{ social_config.linkedin }}" target="_blank">
-        <span class="icon is-medium">
-          <i class="fab fa-linkedin fa-lg"></i>
         </span>
       </a>
     {% endif %}
@@ -28,24 +14,10 @@
         </span>
       </a>
     {% endif %}
-    {% if social_config.gitlab %}
-    <a class="link" href="https://gitlab.com/{{ social_config.gitlab }}" target="_blank">
-      <span class="icon is-medium">
-        <i class="fab fa-gitlab fa-lg"></i>
-      </span>
-    </a>
-    {% endif %}
     {% if social_config.stackoverflow %}
       <a class="link" href="https://stackoverflow.com/users/{{ social_config.stackoverflow }}" target="_blank">
         <span class="icon is-medium">
           <i class="fab fa-stack-overflow fa-lg"></i>
-        </span>
-      </a>
-    {% endif %}
-    {% if social_config.keybase %}
-      <a class="link" href="https://keybase.io/{{ social_config.keybase }}" target="_blank">
-        <span class="icon is-medium">
-          <i class="fab fa-keybase fa-lg"></i>
         </span>
       </a>
     {% endif %}
@@ -67,15 +39,20 @@
 {% endmacro %}
 {% macro  page_publish_metadata(page) %}
   <p class="has-text-grey">
+    {% if page.date %}
     <span class="icon">
       <i class="fas fa-user"></i>
     </span>
     {{ config.extra.author.name }} published on
-    {% if page.date %}
     <span class="icon">
       <i class="far fa-calendar-alt"></i>
     </span>
     <time datetime='{{ page.date }}'>{{ page.date | date(format='%B %d, %Y') }}</time>
+    {% else %}
+    <span class="icon">
+      <i class="far fa-edit"></i>
+    </span>
+    <span>...</span>
     {% endif %}
   </p>
 {% endmacro %}
@@ -89,32 +66,6 @@
       <i class="fas fa-pencil-alt"></i>
     </span>
     {{ page.word_count }} words
-  </p>
-{% endmacro %}
-{% macro render_categories(categories) %}
-  <p>
-    <span class="has-text-black has-text-weight-normal">Categories:</span>
-    {% for category in categories %}
-      <a class="link has-text-weight-light" href='{{ get_taxonomy_url(kind='categories', name=category) }}'>
-        <span class="icon is-small">
-          <i class="fas fa-folder fa-xs"></i>
-        </span>
-        {{ category }}
-      </a>
-    {% endfor %}
-  </p>
-{% endmacro %}
-{% macro render_tags(tags) %}
-  <p>
-    <span class="has-text-black has-text-weight-normal">Tags:</span>
-    {% for tag in tags %}
-      <a class="link has-text-weight-light" href='{{ get_taxonomy_url(kind='tags', name=tag) }}'>
-        <span class="icon is-small">
-          <i class="fas fa-tag fa-xs"></i>
-        </span>
-        {{ tag }}
-      </a>
-    {% endfor %}
   </p>
 {% endmacro %}
 {% macro page_share_links(page) %}
@@ -151,4 +102,20 @@
       </span>
     </a>
   </p>
+{% endmacro %}
+
+{% macro render_taxonomies(taxonomies) %}
+  {% for name, terms in taxonomies %}
+  <p>
+    <span class="has-text-black has-text-weight-normal">{{ name | title }}:</span>
+    {% for term in terms %}
+      <a class="link has-text-weight-light" href='{{ get_taxonomy_url(kind=name, name=term) }}'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        {{ term }}
+      </a>
+    {% endfor %}
+  </p>
+  {% endfor %}
 {% endmacro %}

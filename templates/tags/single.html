@@ -50,14 +50,9 @@
             </a>
           </div>
           <div class="columns">
-            <div class="column">
-              {% if page.taxonomies.categories %}
-              {{ macros::render_categories(categories=page.taxonomies.categories) }}
-              {% endif %}
-            </div>
             <div class="column has-text-right-desktop">
-              {% if page.taxonomies.tags %}
-              {{ macros::render_tags(tags=page.taxonomies.tags) }}
+              {% if page.taxonomies %}
+              {{ macros::render_taxonomies(taxonomies = page.taxonomies) }}
               {% endif %}
             </div>
           </div>

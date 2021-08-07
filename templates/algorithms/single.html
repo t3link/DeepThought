@@ -6,7 +6,7 @@
     <div class='container'>
       <div class='has-text-centered'>
         <h1 class="title is-2">
-          <span class="icon"><i class="fas fa-folder"></i></span> {{ term.name }}
+          <span class="icon"><i class="fas fa-tag"></i></span> {{ term.name }}
         </h1>
       </div>
     </div>
@@ -44,21 +44,15 @@
           <div class="content mt-2">
             {{ page.summary | safe }}
             <a class="read-more" href='{{ page.permalink }}'>
-              Read More
-              <span class="icon is-small">
-                <i class="fas fa-arrow-right fa-xs"></i>
+              阅读更多<span class="icon">
+                <i class="fas fa-arrow-circle-right"></i>
               </span>
             </a>
           </div>
           <div class="columns">
-            <div class="column">
-              {% if page.taxonomies.categories %}
-              {{ macros::render_categories(categories=page.taxonomies.categories) }}
-              {% endif %}
-            </div>
             <div class="column has-text-right-desktop">
-              {% if page.taxonomies.tags %}
-              {{ macros::render_tags(tags=page.taxonomies.tags) }}
+              {% if page.taxonomies %}
+              {{ macros::render_taxonomies(taxonomies = page.taxonomies) }}
               {% endif %}
             </div>
           </div>
