@@ -31,6 +31,10 @@ body[theme="dark"] {
   filter: invert(1) hue-rotate(180deg);
 }
 
+.content.mt-2 {
+  margin-bottom: 0.8rem;
+}
+
 .section {
   padding-top   : 3rem;
   padding-right : 1.5rem;
