@@ -68,41 +68,6 @@
     {{ page.word_count }} 字
   </p>
 {% endmacro %}
-{% macro page_share_links(page) %}
-  <p class="is-size-5">
-    Share:
-    <a class="link" data-sharer="facebook" data-url='{{ page.permalink }}' href="javascript:void(0);" title="Share on facebook">
-      <span class="icon">
-        <i class="fab fa-facebook-square"></i>
-      </span>
-    </a>
-    <a class="link" data-sharer="twitter" data-title='{{ page.title }}' data-url='{{ page.permalink }}' href="javascript:void(0);" title="Share on twitter">
-      <span class="icon">
-        <i class="fab fa-twitter"></i>
-      </span>
-    </a>
-    <a class="link" data-sharer="linkedin" data-url='{{ page.permalink }}' href="javascript:void(0);" title="Share on linkedin">
-      <span class="icon">
-        <i class="fab fa-linkedin"></i>
-      </span>
-    </a>
-    <a class="link" data-sharer="reddit" data-url='{{ page.permalink }}' href="javascript:void(0);" title="Share on reddit">
-      <span class="icon">
-        <i class="fab fa-reddit"></i>
-      </span>
-    </a>
-    <a class="link" data-sharer="hackernews" data-title="{{ page.title }}" data-url='{{ page.permalink }}' href="javascript:void(0);" title="Share on hackernews">
-      <span class="icon">
-        <i class="fab fa-hacker-news"></i>
-      </span>
-    </a>
-    <a class="link" data-sharer="whatsapp" data-title="{{ page.title }}" data-url='{{ page.permalink }}' href="javascript:void(0);" title="Share on whatsapp">
-      <span class="icon">
-        <i class="fab fa-whatsapp-square"></i>
-      </span>
-    </a>
-  </p>
-{% endmacro %}
 
 {% macro render_taxonomies(taxonomies) %}
   {% for name, terms in taxonomies %}

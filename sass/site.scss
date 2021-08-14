@@ -247,3 +247,68 @@ details summary::after {
 [open] summary::after {
   transform: rotate(180deg);
 }
+
+// https://blog.csdn.net/qq_34489091/article/details/81561787
+
+$anchor-color: #8ea2c3;
+
+.block:not(:last-child), .box:not(:last-child), .breadcrumb:not(:last-child), .content:not(:last-child), .highlight:not(:last-child), .level:not(:last-child), .message:not(:last-child), .notification:not(:last-child), .pagination:not(:last-child), .progress:not(:last-child), .subtitle:not(:last-child), .table-container:not(:last-child), .table:not(:last-child), .tabs:not(:last-child), .title:not(:last-child) {
+  margin-bottom: 1.0rem;
+}
+
+.content h2 {
+  border-bottom: 2px dashed #f5f5f5;
+  padding-bottom: 0.4em;
+}
+
+.content h2:not(:first-child) {
+  margin-top: 0.2em;
+}
+
+.content h3:not(:first-child) {
+  margin-top: 0.2em;
+}
+
+.content h4:not(:first-child) {
+  margin-top: 0.2em;
+}
+
+.column.is-10.is-offset-1 {
+  a.zola-anchor:hover {
+    color: $anchor-color;
+  }
+  .zola-anchor {
+    color: $anchor-color;
+  }
+
+  // ch2 -> h2, ch3 -> h3, ch4 -> h4
+  counter-reset: ch2 ch3 ch4;
+  h2 {
+    counter-reset: ch3 ch4;
+  }
+  h3 {
+    counter-reset: ch4;
+  }
+
+  .ch2:after {
+      counter-increment: ch2;
+      content: counter(ch2)" ";
+      color: $anchor-color;
+      vertical-align: sub;
+      font-size: 0.6em;
+  }
+  .ch3:after {
+      counter-increment: ch3;
+      content: counter(ch2)"."counter(ch3)" ";
+      color: $anchor-color;
+      vertical-align: sub;
+      font-size: 0.6em;
+  }
+  .ch4:after {
+    counter-increment: ch4;
+    content: counter(ch2)"."counter(ch3)"."counter(ch4)" ";
+    color: $anchor-color;
+    vertical-align: sub;
+    font-size: 0.6em;
+  }
+}
