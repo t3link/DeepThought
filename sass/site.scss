@@ -318,3 +318,7 @@ $anchor-color: #8ea2c3;
     font-size: 0.6em;
   }
 }
+
+.deprecated :not(.deprecated-exclude) {
+  text-decoration: line-through;
+}
