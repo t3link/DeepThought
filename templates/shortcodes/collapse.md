@@ -1,6 +1,5 @@
 <details>
     <summary>{{ summary }}</summary> 
     <p></p>
-
-    {{ detail }}
+    {{ body | safe | markdown }}
 </details>
