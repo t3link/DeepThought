@@ -252,12 +252,22 @@ details summary::after {
 
 $anchor-color: #8ea2c3;
 
-.title {
-  margin-bottom: 0.8rem !important;
-  // padding-bottom: 0.8rem;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  white-space: nowrap; 
+.box {
+  .title {
+    margin-bottom: 0rem !important;
+    padding-bottom: 0.8rem;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+  }
+
+  .title:hover {
+    margin-bottom: 0rem !important;
+    padding-bottom: 0.8rem;
+    overflow: visible;
+    text-overflow: inherit;
+    white-space: nowrap; 
+  }
 }
 
 .columns.is-gapless:not(:last-child) {
