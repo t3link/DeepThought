@@ -84,3 +84,40 @@
   </p>
   {% endfor %}
 {% endmacro %}
+
+{% macro render_taxonomies_with_icon(tag, type, icon) %}
+<span class="my-3 mx-2" style="display: inline-block;">
+  <a class="link" href="{{ get_taxonomy_url(kind=type, name=tag.name) }}">
+    <span class="icon"><i class="{{ icon }}"></i></span>{{ tag.name }}<sup>{{ tag.pages | length }}</sup>
+  </a>
+</span>
+{% endmacro %}
+
+{% macro render_taxonomies_table(icon) %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="is-fullwidth">
+        <div class="table-container">
+          {% set length = terms | length %}
+          <!-- 每行元素个数 -->
+          {% set row = 6 %}
+          <table class="table table is-hoverable">
+            <tbody>
+            {% for tag in terms %}
+              {% if loop.index % row == 1 %}
+                <tr>
+              {% endif %}
+              <td>{{ macros::render_taxonomies_with_icon(tag=tag, type=taxonomy.name, icon=icon) }}</td>
+              {% if loop.index % row == 0 or loop.index == length %}
+                </tr>
+              {% endif %}
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

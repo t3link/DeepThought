@@ -12,7 +12,6 @@
                 <ul class="timeline timeline-centered">
                     {% set section_item = get_section(path="archives/_index.md") %} 
                     {% for year, pages in section_item.pages | group_by(attribute="year") %}
-                    {% set_global outter = loop.index %}
                     <li class="timeline-item period">
                         <div class="timeline-info"></div>
                         <div class="timeline-marker"></div>
