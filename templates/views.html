@@ -10,13 +10,15 @@
         <div class="columns">
             <div class="column">
                 <ul class="timeline timeline-centered">
-                    {% set section_item = get_section(path="archives/_index.md") %} 
-                    {% for year, pages in section_item.pages | group_by(attribute="year") %}
+                    {% set section = get_section(path="archives/_index.md") %} 
+                    <!-- pages directly in this section "_index.md 需要设置 transparent = true"-->
+                    {% set_global total_articles_num = section.pages | length %}
+                    {% for year, pages in section.pages | group_by(attribute="year") %}
                     <li class="timeline-item period">
                         <div class="timeline-info"></div>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h2 class="timeline-title">{{ year }} 年度</h2>
+                            <h2 class="timeline-title">{{ year }} 年度 </h2>
                         </div>
                     </li>
                     {% for month, posts in pages | group_by(attribute="month") %}
