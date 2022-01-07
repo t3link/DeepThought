@@ -9,7 +9,13 @@
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="#ffffff" name="theme-color" />
   <meta content="#da532c" name="msapplication-TileColor" />
-  
+
+  {% if not current_path %}
+    <meta name="robots" content="noindex,nofollow,noarchive">
+  {% elif current_path != '/' and current_path is not starting_with("/archives") %}
+    <meta name="robots" content="noindex,nofollow,noarchive">
+  {% endif %}
+
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
   <link rel="alternate icon" href="/icons/favicon.png">
 

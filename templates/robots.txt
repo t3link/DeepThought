@@ -1,2 +1,6 @@
-User-agent: *
+User-Agent: *
+Disallow: /*
+Allow: /$
+Allow: /archives/
+
 Sitemap: {{config.base_url}}/sitemap.xml
