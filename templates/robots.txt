@@ -1,6 +1,8 @@
-User-Agent: *
-Disallow: /*
-Allow: /$
+User-agent: *
 Allow: /archives/
+Disallow: /archives$
+Disallow: /archives/$
+Disallow: /archives/page/
+Disallow: /
 
 Sitemap: {{config.base_url}}/sitemap.xml
