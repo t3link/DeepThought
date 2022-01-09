@@ -10,11 +10,12 @@
   <meta content="#ffffff" name="theme-color" />
   <meta content="#da532c" name="msapplication-TileColor" />
 
-  {% if not current_path %}
-    <meta name="robots" content="noindex,nofollow,noarchive">
-  {% elif current_path != '/' and current_path is not starting_with("/archives") %}
-    <meta name="robots" content="noindex,nofollow,noarchive">
-  {% endif %}
+  <!-- 加上 - 可以避免多余的空行渲染 -->
+  {%- if not current_path %}
+    <meta name="robots" content="noindex, nofollow, noarchive">
+  {%- elif current_path != '/' and current_path is not matching("/archives/[1-9][0-9]*/") %}
+    <meta name="robots" content="noindex, nofollow, noarchive">
+  {%- endif %}
 
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
   <link rel="alternate icon" href="/icons/favicon.png">
