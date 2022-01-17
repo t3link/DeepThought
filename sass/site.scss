@@ -192,6 +192,27 @@ $breakpoint-mobile: 768px;
 }
 
 details {
+  border: 1px dashed #3273dc;
+  border-radius: 4px;
+  padding: .5em .5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -.5em -.5em 0;
+  padding: .5em;
+}
+
+details[open] {
+  padding: .5em;
+}
+
+details[open] summary {
+  border-bottom: 1px dashed #3273dc;
+  margin-bottom: .5em;
+}
+
+details {
   // Remove marker added by the display: list-item browser default
   > summary {
     list-style: none;
